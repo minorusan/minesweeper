@@ -1,4 +1,5 @@
 ﻿using Core;
+using System;
 
 public class DisposeHandle
 {
@@ -29,7 +30,7 @@ public class DisposeHandle
 	}
 }
 
-public enum EGridState {Revealed, Closed, Flagged}
+public enum EGridNodeState {Revealed, Closed, Flagged}
 
 public struct GridPosition
 {
@@ -43,16 +44,30 @@ public struct GridPosition
 	}
 }
 
-public struct GridNode
+public enum EGameResult {Win, Lost};
+
+public class GridNode
 {
-	public EGridState currentState;
+	public EGridNodeState currentState;
+	public event Action<EGridNodeState> onStateChanged = delegate{};
+
+	public int adjacentBombs;
 	public readonly GridPosition position;
 	public bool containsBomb;
+
+	public void ChangeState(EGridNodeState state)
+	{
+		if (state != currentState)
+		{
+			currentState = state;
+			onStateChanged(currentState);
+		}
+	}
 
 	public GridNode (GridPosition position)
 	{
 		this.position = position;
-		this.currentState = EGridState.Closed;
+		this.currentState = EGridNodeState.Closed;
 		this.containsBomb = false;
 	}
 }

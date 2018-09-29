@@ -14,22 +14,15 @@ namespace Core.ScriptableAssets
 			int placedBombs = 0;
 			while (placedBombs <= maxBombsCount)
 			{
-				for (int i = 0; i < matrix.GetLength(0); i++)
-				{
-					for (int j = 0; j < matrix.GetLength(1); j++) {
-						matrix[i,j].containsBomb = Random.value < 0.5f;
-						if (matrix[i,j].containsBomb)
-						{
-							placedBombs++;
-						}
-					}
-				}
+				var randomLower = Random.Range(0, matrix.GetUpperBound(0));
+				var randomUpper = Random.Range(0, matrix.GetUpperBound(0));
+				var node = matrix[randomLower, randomUpper];
+				node.containsBomb = true;
+				placedBombs++;
 			}
 		}
 
 		#endregion
-
-
 
 	}
 }

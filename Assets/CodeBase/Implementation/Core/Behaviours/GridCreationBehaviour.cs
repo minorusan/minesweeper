@@ -33,14 +33,16 @@ namespace Core.Behaviours
 					previousY = localPosition.y;
 
 					newGridCell.transform.localPosition = localPosition;
-					InitializeCell(newGridCell);
+					InitializeCell(newGridCell, obj[i,j]);
 				}
 				previousX = previousX + gridDisplaySettings.gridCellDimention + gridDisplaySettings.gridPadding;
 			}
 		}
 
-		private void InitializeCell(GameObject newCell)
+		private void InitializeCell(GameObject newCell, GridNode node)
 		{
+			var cellBehaviour = newCell.GetComponent<CellBehaviour>();
+			cellBehaviour.InitWithNode(node);
 		}
 			
 		#endregion
