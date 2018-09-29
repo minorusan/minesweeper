@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856d1c55e54f24c1680528c50370535a, type: 3}
+  m_Name: Basic cell settings
+  m_EditorClassIdentifier: 
+  closedMaterial: {fileID: 2100000, guid: c08d44d4731c94c0eaba995173b88145, type: 2}
+  revealedMaterial: {fileID: 2100000, guid: 8bc0a94702b16429f85a973b87b275cc, type: 2}
+  redMaterial: {fileID: 2100000, guid: 9cb7f852570224dbf8c336f4777488d4, type: 2}
+  blueMaterial: {fileID: 2100000, guid: dec1ac72f2c6840f0a370f0bb73db76e, type: 2}
+  greenMaterial: {fileID: 2100000, guid: 4b834af408a4d4858b5f0fe361d22151, type: 2}
+  flaggedMaterial: {fileID: 2100000, guid: e0fbac41b337c4caf9740dc790c6cfa8, type: 2}
