@@ -5,15 +5,13 @@ using Core.Commands;
 
 namespace Core.Behaviours
 {
-	[RequireComponent(typeof(BoxCollider))]
 	[RequireComponent(typeof(MeshRenderer))]
-	public class CellBehaviour : MonoBehaviour 
+	public partial class CellBehaviour : MonoBehaviour 
 	{
 		private GridNode _node;
 		private MeshRenderer _renderer;
-
+	
 		public CellSettings settings; 
-
 
 		#region MonoBehaviour
 
@@ -21,12 +19,23 @@ namespace Core.Behaviours
 		{
 			_renderer = GetComponent<MeshRenderer>();
 			_renderer.sharedMaterial = settings.closedMaterial;
+			transform.localScale = Vector3.zero;
 		}
 
 		public void InitWithNode(GridNode node)
 		{
 			_node = node;
 			_node.onStateChanged += OnNodeStateChanged;
+		}
+
+		private void OnEnable()
+		{
+			Invoke("EnableAnimatorDelayed", Random.Range(0f, settings.maxAppearDelay));
+		}
+
+		private void EnableAnimatorDelayed()
+		{
+			GetComponent<Animator>().enabled = true;
 		}
 
 		#endregion
@@ -45,35 +54,7 @@ namespace Core.Behaviours
 					break;
 			}
 		}
-
-		private void ChangeMaterialToRevealed()
-		{
-			var adjacentBombs = _node.adjacentBombs;
-			Material material;
-			switch (adjacentBombs)
-			{
-				case 0:
-					{
-						material = settings.revealedMaterial;
-						break;
-					}
-				case 1:
-					{
-						material = settings.blueMaterial;
-						break;
-					}
-				case 2:
-					{
-						material = settings.greenMaterial;
-						break;
-					}
-				default:
-					material = settings.redMaterial;
-					break;
-			}
-			_renderer.sharedMaterial = material;
-		}
-
+	
 		public void PerformClick()
 		{
 			ServiceProvider.GetService<CommandExecutor>().EnqueueCommand(new SelectGridCellCommand(_node));

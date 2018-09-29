@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Core.Behaviours;
 
 namespace Core.Commands
 {
@@ -16,7 +17,7 @@ namespace Core.Commands
 		#region ICommand implementation
 		public void Execute()
 		{
-			Debug.Log(_gameResult.ToString().ToUpper());
+			GameObject.FindObjectOfType<GameSessionBehaviour>().ChangeGameState(_gameResult);
 		}
 		#endregion
 		

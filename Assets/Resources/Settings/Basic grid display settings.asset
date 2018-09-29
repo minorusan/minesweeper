@@ -13,5 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridNodePrefab: {fileID: 1238468463769250, guid: d0c5a5f7c21df440ba5cb71862999082,
     type: 2}
+  maxDemolitionDelay: 0.3
   gridCellDimention: 1
-  gridPadding: 0.1
+  gridPadding: 0.2

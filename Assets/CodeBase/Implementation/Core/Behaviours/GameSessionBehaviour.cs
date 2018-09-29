@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Core.Commands;
 
 namespace Core.Behaviours
 {
@@ -21,6 +22,20 @@ namespace Core.Behaviours
 		private void Update()
 		{
 			_updater.Update();
+		}
+
+		public void ChangeGameState(EGameResult result)
+		{
+			switch (result)
+			{
+				case EGameResult.Lost:
+					{
+						ServiceProvider.GetService<CommandExecutor>().EnqueueCommand(new DestroyGridCommand());
+						break;
+					}
+				default:
+					break;
+			}	
 		}
 
 		#endregion
