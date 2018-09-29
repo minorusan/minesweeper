@@ -58,6 +58,11 @@ namespace Core.Behaviours
 			_cells.Add(cellBehaviour);
 			cellBehaviour.InitWithNode(node);
 		}
+
+		private void OnDestroy()
+		{
+			_controller.onGridInitialized -= OnNewGridInitialized;
+		}
 			
 		#endregion
 

@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Core.Commands;
+using UnityEngine.SceneManagement;
 
 namespace Core.Behaviours
 {
 	public class GameSessionBehaviour : MonoBehaviour 
 	{
 		private UpdateController _updater;
+		public GameObject gameOverCanvas;
+		public GameObject winCanvas;
 
 		#region MonoBehaviour
 
 		private void Awake()
 		{
-			DontDestroyOnLoad(gameObject);
 			_updater = ServiceProvider.GetService<UpdateController>();
-
 			_updater.AddUpdatable(ServiceProvider.GetService<CommandExecutor>());
 		}
 
@@ -31,6 +32,12 @@ namespace Core.Behaviours
 				case EGameResult.Lost:
 					{
 						ServiceProvider.GetService<CommandExecutor>().EnqueueCommand(new DestroyGridCommand());
+						gameOverCanvas.SetActive(true);
+						break;
+					}
+				case EGameResult.Win:
+					{
+						winCanvas.SetActive(true);
 						break;
 					}
 				default:
@@ -38,6 +45,21 @@ namespace Core.Behaviours
 			}	
 		}
 
+		private void OnDestroy()
+		{
+			_updater.Dispose();
+		}
+
 		#endregion
+
+		public void Quit()
+		{
+			Application.Quit();
+		}
+
+		public void ReloadLevel()
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
 	}
 }

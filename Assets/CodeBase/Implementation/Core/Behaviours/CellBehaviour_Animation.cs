@@ -17,7 +17,7 @@ namespace Core.Behaviours
 			if (Random.value < settings.multipleCellsAudioChange)
 			{
 				GetComponent<AudioSource>().clip = settings.clips[Random.Range(0, settings.clips.Length)];
-				GetComponent<AudioSource>().Play();
+				GetComponent<AudioSource>().Play((ulong)Random.Range(33200, 44100));
 			}
 		}
 

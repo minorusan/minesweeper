@@ -39,5 +39,14 @@ namespace Core
 				}
 			}
 		}
+
+		public void Dispose()
+		{
+			foreach (var item in _updateQueue)
+			{
+				item.Dispose();
+			}
+			_updateQueue.Clear();
+		}
 	}
 }
