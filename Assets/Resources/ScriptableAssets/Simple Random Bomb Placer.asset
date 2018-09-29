@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429f41fc75c324541b41947f0f451e18, type: 3}
   m_Name: Simple Random Bomb Placer
   m_EditorClassIdentifier: 
-  maxBombsCount: 5
+  maxBombsCount: 10

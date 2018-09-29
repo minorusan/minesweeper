@@ -12,7 +12,7 @@ namespace Core.ScriptableAssets
 		public override void PlaceBombs(ref GridNode[,] matrix)
 		{
 			int placedBombs = 0;
-			while (placedBombs <= maxBombsCount)
+			while (placedBombs < maxBombsCount)
 			{
 				var randomLower = Random.Range(0, matrix.GetUpperBound(0));
 				var randomUpper = Random.Range(0, matrix.GetUpperBound(0));

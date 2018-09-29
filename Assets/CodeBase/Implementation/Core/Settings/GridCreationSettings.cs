@@ -9,6 +9,7 @@ namespace Core.Settings
 	{
 		public GameObject gridNodePrefab;
 
+		public float maxDemolitionDelay = 1f;
 		public float gridCellDimention = 1f;
 		public float gridPadding = 0.5f;
 	}

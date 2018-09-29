@@ -11,9 +11,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 856d1c55e54f24c1680528c50370535a, type: 3}
   m_Name: Basic cell settings
   m_EditorClassIdentifier: 
+  maxAppearDelay: 1
+  materialLerpTime: 0.39
+  explosionRadius: 5
+  explosionPower: 700
+  demolitionParticles: {fileID: 1000010608846784, guid: 6747b1742d70743a8aff8594e708b2f7,
+    type: 2}
   closedMaterial: {fileID: 2100000, guid: c08d44d4731c94c0eaba995173b88145, type: 2}
   revealedMaterial: {fileID: 2100000, guid: 8bc0a94702b16429f85a973b87b275cc, type: 2}
   redMaterial: {fileID: 2100000, guid: 9cb7f852570224dbf8c336f4777488d4, type: 2}
   blueMaterial: {fileID: 2100000, guid: dec1ac72f2c6840f0a370f0bb73db76e, type: 2}
   greenMaterial: {fileID: 2100000, guid: 4b834af408a4d4858b5f0fe361d22151, type: 2}
-  flaggedMaterial: {fileID: 2100000, guid: e0fbac41b337c4caf9740dc790c6cfa8, type: 2}
+  multipleCellsAudioChange: 0.19
+  clips:
+  - {fileID: 8300000, guid: 803b1ed5d3a7a45b899be7b8873e3c71, type: 3}
+  - {fileID: 8300000, guid: 025c68fd194774894970c6a5c76e33c3, type: 3}
+  - {fileID: 8300000, guid: ff26a374089204c38bdf8d4777806b19, type: 3}
+  - {fileID: 8300000, guid: 200b1ab39b30a47c0aa9c52363e289d0, type: 3}
+  - {fileID: 8300000, guid: d626a9dfb55294b74adab6d2e9bd36f2, type: 3}
+  - {fileID: 8300000, guid: 9b7c0eb765fdc44519512904bd5c9599, type: 3}
+  - {fileID: 8300000, guid: 5f43b04b4b8e144adb426110a2ccd9ce, type: 3}

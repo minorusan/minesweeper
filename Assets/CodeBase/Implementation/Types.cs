@@ -50,9 +50,10 @@ public class GridNode
 {
 	public EGridNodeState currentState;
 	public event Action<EGridNodeState> onStateChanged = delegate{};
+	public readonly GridPosition position;
 
 	public int adjacentBombs;
-	public readonly GridPosition position;
+	public bool requiresDelayForDrawing;
 	public bool containsBomb;
 
 	public void ChangeState(EGridNodeState state)

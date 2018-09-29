@@ -26,7 +26,6 @@ namespace Core
 		void IUpdatable.Dispose()
 		{
 			_comandsQueue.Clear();
-			_comandsQueue = null;
 		}
 
 		DisposeHandle IUpdatable.handle

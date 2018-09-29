@@ -48,10 +48,14 @@ namespace Core
 			{
 				if (node.containsBomb)
 				{
-					ServiceProvider.GetService<CommandExecutor>().EnqueueCommand(new NotifyGameResultCommand(EGameResult.Lost));
+					var notifyCommand = new NotifyGameResultCommand(EGameResult.Lost);
+					var destroyCommand = new DestroySingleBombCommand(node);
+					ServiceProvider.GetService<CommandExecutor>().EnqueueCommand(
+						new CompositeCommand(new List<ICommand>(){notifyCommand, destroyCommand}));
 				}
 				else
 				{
+					node.requiresDelayForDrawing = false;
 					RevealNodesRecursive(node);
 					CheckWinCondition();
 				}	
@@ -97,6 +101,7 @@ namespace Core
 			{
 				foreach (var candidate in candidates)
 				{
+					candidate.requiresDelayForDrawing = true;
 					RevealNodesRecursive(candidate);
 				}
 			}
