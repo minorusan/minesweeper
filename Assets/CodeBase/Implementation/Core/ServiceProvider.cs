@@ -13,6 +13,7 @@ namespace Core
 			_typesDictionary = new Dictionary<Type, object>();
 			_typesDictionary.Add(typeof(CommandExecutor), new CommandExecutor());
 			_typesDictionary.Add(typeof(UpdateController), new UpdateController());
+			_typesDictionary.Add(typeof(GridController), new GridController());
 		}
 
 		public static T GetService<T>() where T:class

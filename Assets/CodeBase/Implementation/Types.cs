@@ -28,3 +28,31 @@ public class DisposeHandle
 		state = EDisposeHandleState.Disposed;
 	}
 }
+
+public enum EGridState {Revealed, Closed, Flagged}
+
+public struct GridPosition
+{
+	public readonly int x;
+	public readonly int y;
+
+	public GridPosition (int x, int y)
+	{
+		this.x = x;
+		this.y = y;
+	}
+}
+
+public struct GridNode
+{
+	public EGridState currentState;
+	public readonly GridPosition position;
+	public bool containsBomb;
+
+	public GridNode (GridPosition position)
+	{
+		this.position = position;
+		this.currentState = EGridState.Closed;
+		this.containsBomb = false;
+	}
+}
